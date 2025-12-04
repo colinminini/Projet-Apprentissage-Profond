@@ -1,6 +1,7 @@
 # Local environments and caches
 .venv/
 __pycache__/
+runs/checkpoints/
 
 # Dataset artifacts (downloaded locally, not tracked)
 data/fma_metadata
