@@ -31,11 +31,11 @@ The objective of this project is to do genre classification on 30-second music a
 - I worked both on the full 30-second audio clips and on 3-second sub-samples. The idea is that the mel-spectrograms of 3-second sub-samples have a shape closer to traditional image formats—roughly squared 2D tensors—and would then be better processed by classical computer vision deep learning architectures, namely a Convolutional Neural Network ([2]). An improvement from that training setting is that we can do ensemble testing. For testing, instead of doing classification on the 30-second audio samples, we split the sample we want to predict into ten 3-second clips. Then we predict the genre of every one of these ten clips and average predictions (average logits). The model has been trained on both settings for comparison (30/3 seconds inputs).
 
 ## Preprocessing
-- Audios from the FMA dataset do not all have an exact 30-second length, so I padded/truncated every sample to make sure all have the same shape. The idea is not to work on the audio waveform of input samples itself (variation of air pressure over time) (see figure [Waveform]), which is uninterpretable by humans, but rather on their mel-spectrogram. More specifically we work on log-dB mel-spectrograms that are closer to human interpretability of sounds: humans do not hear the high frequencies as well as the lower ones, and the logarithmic scale takes this into account in its 2D representation of the audio. Mel-spectrograms are a 2D representation of an audio clip showing each frequency’s energy over time. To compute the log-mel spectrogram of an audio clip we compute a short-time Fourier transform with n_fft=2048 and hop_length=512. For each of these FFT windows we evaluate the energy of the frequencies and project them into 128 mel bins corresponding to a logarithmic scale on the frequency axis. That makes a 2D tensor representing the audio clip (see [30s mel] and [3s grid]).
+- Audios from the FMA dataset do not all have an exact 30-second length, so I padded/truncated every sample to make sure all have the same shape. The idea is not to work on the audio waveform of input samples itself (variation of air pressure over time) (see figure [Waveform]), which is uninterpretable by humans, but rather on their mel-spectrogram. More specifically we work on log-dB mel-spectrograms that are closer to human interpretability of sounds: humans do not hear the high frequencies as well as the lower ones, and the logarithmic scale takes this into account in its 2D representation of the audio. Mel-spectrograms are a 2D representation of an audio clip showing each frequency’s energy over time. To compute the log-mel spectrogram of an audio clip we compute a short-time Fourier transform with n_fft=2048 and hop_length=512. For each of these FFT windows we evaluate the energy of the frequencies and project them into 128 mel bins corresponding to a logarithmic scale on the frequency axis. That makes a 2D tensor representing the audio clip (see figures [30s mel] and [3s grid]).
 
-![Waveform](sources/visualisation/121915_waveform.png)
-![30s mel](sources/visualisation/121915_mel_30s.png)
-![3s grid](sources/visualisation/121915_mel_3s_grid.png)
+![Waveform](sources/visualisation/132425_waveform.png)
+![30s mel](sources/visualisation/132425_mel_30s.png)
+![3s grid](sources/visualisation/132425_mel_3s_grid.png)
 
 
 ## Model architecture
@@ -56,6 +56,10 @@ I iterate testing batches over the test_loader as usual but in the test function
 - For the sub-sampled dataset, after training we obtain a testing accuracy of 60%. It is significantly above the 12.5% accuracy for random predictions so we can safely assume the model has learned from training.
 - For the 30-second dataset, the model did not learn. This demonstrates the sub-sampling relevance for this task.
 - The sub-sampling + ensemble testing technique has led to more prediction accuracy and robustness!
+
+![Accuracy](sources/visualisation/CNN_exp_ensemble_accuracy.png) 
+![Loss](sources/visualisation/CNN_exp_ensemble_loss.png) 
+![Train batch loss](sources/visualisation/CNN_exp_ensemble_train_batch_loss.png)
 
 
 # References
