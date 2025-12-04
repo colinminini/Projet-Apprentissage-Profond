@@ -89,7 +89,7 @@ def main() -> None:
         ], # type: ignore
         xlabel="Epoch",
         ylabel="Accuracy",
-        title="CNN Ensemble Accuracy",
+        title="CNN sub-sampling + testing ensemble Accuracy",
         output_path=args.output_dir / "CNN_exp_ensemble_accuracy.png",
     )
 
@@ -102,7 +102,7 @@ def main() -> None:
         ], # type: ignore
         xlabel="Epoch",
         ylabel="Cross-entropy loss",
-        title="CNN Ensemble Loss",
+        title="CNN sub-sampling Loss",
         output_path=args.output_dir / "CNN_exp_ensemble_loss.png",
     )
 
@@ -117,7 +117,7 @@ def main() -> None:
         ],
         xlabel="Batch step",
         ylabel="Cross-entropy loss",
-        title="CNN Ensemble Batch Loss (train)",
+        title="CNN sub-sampling Batch Loss (train)",
         output_path=args.output_dir / "CNN_exp_ensemble_train_batch_loss.png",
     )
 

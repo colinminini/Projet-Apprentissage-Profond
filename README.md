@@ -33,9 +33,9 @@ The objective of this project is to do genre classification on 30-second music a
 ## Preprocessing
 - Audios from the FMA dataset do not all have an exact 30-second length, so I padded/truncated every sample to make sure all have the same shape. The idea is not to work on the audio waveform of input samples itself (variation of air pressure over time) (see figure [Waveform]), which is uninterpretable by humans, but rather on their mel-spectrogram. More specifically we work on log-dB mel-spectrograms that are closer to human interpretability of sounds: humans do not hear the high frequencies as well as the lower ones, and the logarithmic scale takes this into account in its 2D representation of the audio. Mel-spectrograms are a 2D representation of an audio clip showing each frequency’s energy over time. To compute the log-mel spectrogram of an audio clip we compute a short-time Fourier transform with n_fft=2048 and hop_length=512. For each of these FFT windows we evaluate the energy of the frequencies and project them into 128 mel bins corresponding to a logarithmic scale on the frequency axis. That makes a 2D tensor representing the audio clip (see figures [30s mel] and [3s grid]).
 
-![Waveform](sources/visualisation/132425_waveform.png)
-![30s mel](sources/visualisation/132425_mel_30s.png)
-![3s grid](sources/visualisation/132425_mel_3s_grid.png)
+![Waveform](sources/visualisation/131425_waveform.png)
+![30s mel](sources/visualisation/131425_mel_30s.png)
+![3s grid](sources/visualisation/131425_mel_3s_grid.png)
 
 
 ## Model architecture
