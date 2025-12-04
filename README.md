@@ -16,7 +16,6 @@ Author: Colin MININI.
 ## Running
 - To re-train, run `notebook.ipynb`.
 - Training logs are saved in `/runs/logs/`. To visualize them (also works live) run: tensorboard --logdir runs/CNN_exp
-- Model checkpoints are saved in `/runs/checkpoints/`
 
 
 # Project
