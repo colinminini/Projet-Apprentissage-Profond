@@ -89,7 +89,7 @@ def main() -> None:
         ], # type: ignore
         xlabel="Epoch",
         ylabel="Accuracy",
-        title="CNN sub-sampling + testing ensemble Accuracy",
+        title="CNN sub-sampling Accuracy",
         output_path=args.output_dir / "CNN_exp_ensemble_accuracy.png",
     )
 

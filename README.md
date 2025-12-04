@@ -15,13 +15,13 @@ Author: Colin MININI.
 
 ## Running
 - To re-train, run `notebook.ipynb`.
-- Training logs are saved in `/runs/logs/`. To visualize them (also works live) run: tensorboard --logdir runs/CNN_exp
+- Training logs are saved in `/runs/logs/`. To visualize them (also works live) run: tensorboard --logdir runs/logs
 
 
 # Project
 
 ## Objective
-The objective of this project is to do genre classification on 30-second music audio clips. The dataset used here is the FMA Dataset ([1]) (Github link: https://github.com/mdeff/fma). More specifically we work on the fma-small dataset, which contains 8k audio samples for 8 equally distributed main genres (Hip-Hop, Electro, Experimental...); the full pipeline is detailed in [3].
+The objective of this project is to do genre classification on 30-second music audio clips. The dataset used here is the FMA Dataset ([1]) (Github link: https://github.com/mdeff/fma). More specifically we work on the fma-small dataset, which contains 8k audio samples for 8 equally distributed main genres (Hip-Hop, Electro, Experimental...).
 - fma-small (download here: https://os.unil.cloud.switch.ch/fma/fma_small.zip) is a folder containing the .mp3 samples.
 - fma_metadata (download here: https://os.unil.cloud.switch.ch/fma/fma_metadata.zip) is a folder containing different metadata .csv files about the dataset. In particular it includes the `genres.csv` metadata file that helps us create `data/labeled_tracks.csv` (run `python scripts/utils/labaled_tracks.py`), with features: track_id, audio_filepath, genre_class.
 
