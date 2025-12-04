@@ -10,7 +10,7 @@ Author: Colin MININI.
 - Create a new python environment `.venv` and install `requirements.txt`
 - Download FMA Small audio: https://os.unil.cloud.switch.ch/fma/fma_small.zip
 - Download FMA metadata: https://os.unil.cloud.switch.ch/fma/fma_metadata.zip
-- Unzip both into the repo so the folders end up at `data/fma_small/` and `data/fma_metadata/` (keep the internal directory structure from the zips).
+- Unzip both into the repository `data/` folder so that the internal folders of each .zip end up at `data/fma_small/` and `data/fma_metadata/` (keep the internal directory structure from the zips).
 - Compute and cache log-mel spectrograms of both 30- and 3-second audio clips by running: `python scripts/utils/mels.py` (writes `.npy` files into `data/mels/`)
 
 ## Running
