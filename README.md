@@ -53,7 +53,7 @@ I iterate testing batches over the test_loader as usual but in the test function
 
 ## Results (see `notebook.ipynb` or run: `tensorboard --logdir runs/logs`)
 - For the sub-sampled dataset, after training we obtain a testing accuracy of 60%. It is significantly above the 12.5% accuracy for random predictions so we can safely assume the model has learned from training.
-- For the 30-second dataset, the model did not learn. This demonstrates the sub-sampling relevance for this task.
+- For the 30-second dataset, the model did not learn. It's training and testing accuracies stayed at 12.5% for the whole training (see `notebook.ipynb` or run: `tensorboard --logdir runs/logs`). A reason for that could be that the input size explodes for 30-second audio clips, x shape is 128×2584 vs 128×258. Meaning that the classifier first linear layer parameter count jump to ~21 M vs ~2 M params for the 3 s run. (see `scripts/models`, model architecture). This demonstrates the sub-sampling relevance for this task.
 - The sub-sampling + ensemble testing technique has led to more prediction accuracy and robustness!
 
 ![Accuracy](sources/visualisation/CNN_exp_ensemble_accuracy.png) 
